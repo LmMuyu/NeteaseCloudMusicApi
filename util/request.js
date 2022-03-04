@@ -44,12 +44,12 @@ const chooseUserAgent = (ua = false) => {
 }
 const createRequest = (method, url, data, options) => {
   return new Promise((resolve, reject) => {
-    let headers = { 'User-Agent': chooseUserAgent(options.ua) }
+    let headers = { 'User-Agent': chooseUserAgent(options.ua),"X-Real-IP":"120.27.135.200" }
     if (method.toUpperCase() === 'POST')
       headers['Content-Type'] = 'application/x-www-form-urlencoded'
     if (url.includes('music.163.com'))
       headers['Referer'] = 'https://music.163.com'
-    if (options.realIP) headers['X-Real-IP'] = options.realIP
+    if (options.realIP) headers['X-Real-IP'] = "120.27.135.200"
     // headers['X-Real-IP'] = '118.88.88.88'
     if (typeof options.cookie === 'object')
       headers['Cookie'] = Object.keys(options.cookie)
